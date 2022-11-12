@@ -71,7 +71,7 @@ pipeline {
     always {
       script {
         if (env.DEFUALT_MAIL_LIST) {
-          emailext subject: "${env.JOB_NAME} - Build#${env.BUILD_NUMBER} is ${currentBuild.currentResult}!", mimeType: 'text/html',
+          emailext subject: "${env.JOB_NAME} - ${currentBuild.displayName} is ${currentBuild.currentResult}!", mimeType: 'text/html',
             to: "${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
         }
       }
