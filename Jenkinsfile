@@ -69,7 +69,7 @@ stages {
 	    script {
 	   if(params.MailingList){
                     emailext subject: "${env.JOB_NAME} - BuildId#${env.BUILD_NUMBER} is ${currentBuild.currentResult}!", mimeType: 'text/html', 
-                            to: ${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
+                            to: "${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
                 }
 	    }
 		}
