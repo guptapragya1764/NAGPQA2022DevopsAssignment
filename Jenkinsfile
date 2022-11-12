@@ -11,7 +11,7 @@ agent any
 
 
  environment{
-        DEFUALT_MAIL_LIST = 'pragyagupta1792@gmail.com','cutubittu@gmail.com'
+        DEFUALT_MAIL_LIST = 'pragyagupta1792@gmail.com, cutubittu@gmail.com'
     }
 		
 stages {
