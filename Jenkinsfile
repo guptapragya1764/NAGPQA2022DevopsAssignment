@@ -1,9 +1,13 @@
-currentBuild.displayName="NAGPDevTestops-#"+currentBuild.number
+currentBuild.displayName="NAGPDevTestops#"+currentBuild.number
 
 pipeline {
 
 agent any
 
+tools{
+        maven 'Maven'
+    }
+	
   triggers {
   pollSCM '*/2 * * * *'
   cron '* */12 * * *'
@@ -67,7 +71,7 @@ stages {
    post{
    always{
 	    script {
-	   if(params.MailingList){
+	   if(env.DEFUALT_MAIL_LIST){
                     emailext subject: "${env.JOB_NAME} - BuildId#${env.BUILD_NUMBER} is ${currentBuild.currentResult}!", mimeType: 'text/html', 
                             to: "${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
                 }
