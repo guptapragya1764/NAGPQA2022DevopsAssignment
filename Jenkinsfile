@@ -21,7 +21,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-        checkout scm
+        echo "Code has been checked out"
       }
     }
 
