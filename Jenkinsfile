@@ -75,7 +75,7 @@ pipeline {
             to: "${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
         }
       }
-      junit '**/target/surefire-reports/*.xml', skipPublishingChecks: true
+      junit skipPublishingChecks: true, testResults: '**/target/surefire-reports/*.xml'
     }
   }
 }
