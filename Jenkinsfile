@@ -43,7 +43,7 @@ pipeline {
 
     stage("Code Build") {
       steps {
-        bat 'rmvn clean'
+        bat 'mvn clean'
       }
     }
     
@@ -81,7 +81,9 @@ pipeline {
             to: "${env.DEFUALT_MAIL_LIST}", body: '${SCRIPT, template="groovy-html.template"}'
         }
       }
-      junit skipPublishingChecks: true, testResults: '**/target/surefire-reports/*.xml'
+    }
+    success {
+     junit skipPublishingChecks: true, testResults: '**/target/surefire-reports/*.xml'
     }
   }
 }
