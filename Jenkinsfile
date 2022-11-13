@@ -3,7 +3,7 @@ currentBuild.description = "This is pipeline for NAGP QA 2022 assignment."
 
 pipeline {
 
-  agent any 
+  agent any
 
   tools {
     maven 'Maven'
