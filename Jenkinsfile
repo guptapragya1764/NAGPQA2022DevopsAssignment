@@ -43,7 +43,7 @@ pipeline {
 
     stage("Code Build") {
       steps {
-        bat 'mvn clean'
+        bat 'rmvn clean'
       }
     }
     
