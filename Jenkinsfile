@@ -33,7 +33,7 @@ pipeline {
       }
     }
 
-    stage("Quality Gate check status") {
+    stage("Quality Gate Check Status") {
       steps {
         timeout(time: 1, unit: 'HOURS') {
           waitForQualityGate abortPipeline: true, credentialsId: 'sonar-jenkin-token'
@@ -41,9 +41,15 @@ pipeline {
       }
     }
 
-    stage("Code build and test") {
+    stage("Code Build") {
       steps {
-        bat 'mvn clean test'
+        bat 'mvn clean'
+      }
+    }
+    
+     stage("Code Test") {
+      steps {
+        bat 'mvn test'
       }
     }
 
