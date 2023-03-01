@@ -58,8 +58,8 @@ pipeline {
         rtMavenDeployer(
           id: 'deployer',
           serverId: '547254@artifact',
-          releaseRepo: 'pragya-artifactory',
-          snapshotRepo: 'pragya-artifactory'
+          releaseRepo: 'pragya-nagp-artifactory',
+          snapshotRepo: 'pragya-nagp-artifactory'
         )
         rtMavenRun(
           pom: 'pom.xml',
